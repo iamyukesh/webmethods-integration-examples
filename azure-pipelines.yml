@@ -1,8 +1,17 @@
-# Starter pipeline
+trigger:
+  branches:
+    include:
+      - master  # or your desired branch
+
+pool:
+  vmImage: 'windows-latest'
+
 steps:
+- task: Checkout@1
 - task: PowerShell@2
+  displayName: 'Build webMethods package using ABE'
   inputs:
     targetType: 'inline'
     script: |
-      # Write your PowerShell commands here.
+      Write-Host "Building webMethods package..."
       C:\SoftwareAG\common\AssetBuildEnvironment\bin\build.bat
