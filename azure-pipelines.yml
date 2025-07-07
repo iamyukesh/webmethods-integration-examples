@@ -3,6 +3,9 @@ trigger:
     include:
       - master  # or your desired branch
 
+pool:
+  name: Default
+
 steps:
 - checkout: self
 - task: PowerShell@2
