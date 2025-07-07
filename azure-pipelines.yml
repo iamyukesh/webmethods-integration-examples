@@ -15,3 +15,10 @@ steps:
     script: |
       Write-Host "Building webMethods package..."
       C:\SoftwareAG\common\AssetBuildEnvironment\bin\build.bat
+- task: PowerShell@2
+  displayName: 'Prepare deployment files using Deployer'
+  inputs:
+    targetType: 'inline'
+    script: |
+      Write-Host "Prepare deployment files..."
+      C:\SoftwareAG\IntegrationServer\instances\default\packages\WmDeployer\bin\projectautomator.bat ProjectAutomator.xml
