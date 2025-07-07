@@ -3,11 +3,8 @@ trigger:
     include:
       - master  # or your desired branch
 
-pool:
-  vmImage: 'windows-latest'
-
 steps:
-- task: Checkout@1
+- checkout: self
 - task: PowerShell@2
   displayName: 'Build webMethods package using ABE'
   inputs:
